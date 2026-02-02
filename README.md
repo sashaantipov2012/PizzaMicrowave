@@ -8,7 +8,7 @@
 
 While putting a fork in a real microwave will cause an explosion, putting a **fork** in *this* Microwave is highly encouraged! Feel free to fork this repository and contribute.
 
-Pizza Microwave is a tool that allows gamers to download, install, and manage mods for Pizza Tower. The aim for it is to make installing mods a much better quality of life experience. Unfortunately, this tool does not solve the issue of combining multiple mods as there is no easy way to combine xdelta patches (the main method of modding Pizza Tower).
+Pizza Microwave is a tool that allows gamers to download, install, and manage mods for Pizza Tower. This fork aims to make installing mods an **even better** quality of life experience than Pizza Oven. Unfortunately, this tool does not solve the issue of combining multiple mods as there is no easy way to combine xdelta patches (the main method of modding Pizza Tower).
 
 ## Getting Started
 ### Prerequisites
