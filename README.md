@@ -1,4 +1,4 @@
-<img src="PizzaOven/Assets/PizzaOvenLogo.png" width="70%" alt="PizzaMicrowaveLogo">
+<img src="PizzaOven/Assets/PizzaMicrowaveLogo.png" width="70%" alt="PizzaMicrowaveLogo">
 
 Pizza Microwave is a tool that allows gamers to download, install, and manage mods for Pizza Tower. The aim for it is to make installing mods a much better quality of life experience. Unfortunately, this tool does not solve the issue of combining multiple mods as there is no easy way to combine xdelta patches (the main method of modding Pizza Tower).
 
