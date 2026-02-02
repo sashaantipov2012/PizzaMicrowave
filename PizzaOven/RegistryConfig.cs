@@ -2,17 +2,17 @@
 using System.IO;
 using System.Reflection;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public static class RegistryConfig
     {
         public static bool InstallGBHandler()
         {
-            string AppPath = $"{Global.assemblyLocation}{Global.s}PizzaOven.exe";
-            string protocolName = $"pizzaoven";
+            string AppPath = $"{Global.assemblyLocation}{Global.s}PizzaMicrowave.exe";
+            string protocolName = $"PizzaMicrowave";
             try
             {
-                var reg = Registry.CurrentUser.CreateSubKey(@"Software\Classes\PizzaOven");
+                var reg = Registry.CurrentUser.CreateSubKey(@"Software\Classes\PizzaMicrowave");
                 reg.SetValue("", $"URL:{protocolName}");
                 reg.SetValue("URL Protocol", "");
                 reg = reg.CreateSubKey(@"shell\open\command");

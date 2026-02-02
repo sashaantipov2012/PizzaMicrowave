@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Xml.Linq;
 using System.Net.Http;
 using System.Windows.Media;
-using PizzaOven.UI;
+using PizzaMicrowave.UI;
 using System.Windows.Controls.Primitives;
 using System.Security.Cryptography;
 using Microsoft.Win32;
@@ -27,7 +27,7 @@ using SharpCompress.Common;
 using SharpCompress.Readers;
 using System.Threading;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -48,10 +48,10 @@ namespace PizzaOven
             Global.config = new();
 
             // Get Version Number
-            var PizzaOvenVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            version = PizzaOvenVersion.Substring(0, PizzaOvenVersion.LastIndexOf('.'));
+            var PizzaMicrowaveVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            version = PizzaMicrowaveVersion.Substring(0, PizzaMicrowaveVersion.LastIndexOf('.'));
 
-            Global.logger.WriteLine($"Launched PizzaOven Mod Manager v{version}!", LoggerType.Info);
+            Global.logger.WriteLine($"Launched PizzaMicrowave Mod Manager v{version}!", LoggerType.Info);
             // Get Global.config if it exists
             if (File.Exists($@"{Global.assemblyLocation}{Global.s}Config.json"))
             {
@@ -102,7 +102,7 @@ namespace PizzaOven
 
             defaultFlow.Blocks.Add(ConvertToFlowParagraph(defaultText));
             DescriptionWindow.Document = defaultFlow;
-            var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaOven;component/Assets/PizzaOvenPreview.png"));
+            var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaMicrowave;component/Assets/PizzaMicrowavePreview.png"));
             Preview.Source = bitmap;
             PreviewBG.Source = null;
 
@@ -185,7 +185,7 @@ namespace PizzaOven
                         m.preview = metadata.preview;
                     }
                     else
-                        m.preview = new Uri("pack://application:,,,/PizzaOven;component/Assets/PizzaOvenLogo.png");
+                        m.preview = new Uri("pack://application:,,,/PizzaMicrowave;component/Assets/PizzaMicrowaveLogo.png");
                     App.Current.Dispatcher.Invoke((Action)delegate
                     {
                         Global.ModList.Add(m);
@@ -253,7 +253,7 @@ namespace PizzaOven
                 Global.logger.WriteLine($"Cooking mods for Pizza Tower", LoggerType.Info);
                 if (!await Build(Global.config.ModsFolder))
                 {
-                    Global.logger.WriteLine($"Pizza Oven failed to cook the selected mod and will not launch the game", LoggerType.Error);
+                    Global.logger.WriteLine($"Pizza Microwave failed to cook the selected mod and will not launch the game", LoggerType.Error);
                     ModGrid.IsEnabled = true;
                     ConfigButton.IsEnabled = true;
                     LaunchButton.IsEnabled = true;
@@ -648,7 +648,7 @@ namespace PizzaOven
             if (mod == null || !File.Exists($"{Global.assemblyLocation}{Global.s}Mods{Global.s}{mod}{Global.s}mod.json"))
             {
                 DescriptionWindow.Document = defaultFlow;
-                var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaOven;component/Assets/PizzaOvenPreview.png"));
+                var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaMicrowave;component/Assets/PizzaMicrowavePreview.png"));
                 Preview.Source = bitmap;
                 PreviewBG.Source = null;
             }
@@ -694,7 +694,7 @@ namespace PizzaOven
                 }
                 else
                 {
-                    var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaOven;component/Assets/PizzaOvenPreview.png"));
+                    var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaMicrowave;component/Assets/PizzaMicrowavePreview.png"));
                     Preview.Source = bitmap;
                     PreviewBG.Source = null;
                 }
@@ -1144,7 +1144,7 @@ namespace PizzaOven
                 BrowserRefreshButton.Visibility = Visibility.Visible;
                 if (FeedGenerator.exception.Message.Contains("JSON tokens"))
                 {
-                    BrowserMessage.Text = "Uh oh! Pizza Oven failed to deserialize the GameBanana feed.";
+                    BrowserMessage.Text = "Uh oh! Pizza Microwave failed to deserialize the GameBanana feed.";
                     return;
                 }
                 switch (Regex.Match(FeedGenerator.exception.Message, @"\d+").Value)
@@ -1177,7 +1177,7 @@ namespace PizzaOven
                 ErrorPanel.Visibility = Visibility.Visible;
                 BrowserRefreshButton.Visibility = Visibility.Collapsed;
                 BrowserMessage.Visibility = Visibility.Visible;
-                BrowserMessage.Text = "Pizza Oven couldn't find any mods.";
+                BrowserMessage.Text = "Pizza Microwave couldn't find any mods.";
             }
             PageBox.ItemsSource = Enumerable.Range(1, (int)(FeedGenerator.CurrentFeed.TotalPages));
 

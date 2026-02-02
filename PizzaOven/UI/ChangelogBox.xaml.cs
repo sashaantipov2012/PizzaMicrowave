@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Reflection;
 
-namespace PizzaOven.UI
+namespace PizzaMicrowave.UI
 {
     /// <summary>
     /// Interaction logic for ChangelogBox.xaml
@@ -32,7 +32,7 @@ namespace PizzaOven.UI
             }
             else
             {
-                var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaOven;component/Assets/PizzaOvenPreview.png"));
+                var bitmap = new BitmapImage(new Uri("pack://application:,,,/PizzaMicrowave;component/Assets/PizzaMicrowavePreview.png"));
                 PreviewImage.Source = bitmap;
                 PreviewImage.Visibility = Visibility.Visible;
             }

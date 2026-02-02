@@ -9,13 +9,13 @@ using System.Text.Json;
 using SharpCompress.Common;
 using System.Text.RegularExpressions;
 using SharpCompress.Readers;
-using PizzaOven.UI;
+using PizzaMicrowave.UI;
 using SharpCompress.Archives.SevenZip;
 using System.Linq;
 using SharpCompress.Archives;
 using SevenZipExtractor;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public class ModDownloader
     {
@@ -138,7 +138,7 @@ namespace PizzaOven
         {
             try
             {
-                line = line.Replace("pizzaoven:", "");
+                line = line.Replace("PizzaMicrowave:", "");
                 string[] data = line.Split(',');
                 URL_TO_ARCHIVE = data[0];
                 // Used to grab file info from dictionary

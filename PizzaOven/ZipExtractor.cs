@@ -7,7 +7,7 @@ using SharpCompress.Common;
 using SharpCompress.Readers;
 using System.Windows;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public class ZipExtractor : IPackageExtractor
     {
@@ -39,9 +39,9 @@ namespace PizzaOven
             File.Delete(@$"{sourceFilePath}");
             // Move the folders to the right place
             string parentPath = Directory.GetParent(destDirPath).FullName;
-            Directory.Move(Directory.GetDirectories(destDirPath)[0], $@"{parentPath}{Global.s}PizzaOven");
+            Directory.Move(Directory.GetDirectories(destDirPath)[0], $@"{parentPath}{Global.s}PizzaMicrowave");
             Directory.Delete(destDirPath);
-            Directory.Move($@"{parentPath}{Global.s}PizzaOven", destDirPath);
+            Directory.Move($@"{parentPath}{Global.s}PizzaMicrowave", destDirPath);
         }
 
     }

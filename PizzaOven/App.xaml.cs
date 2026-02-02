@@ -4,7 +4,7 @@ using System.Windows.Threading;
 using System.Threading;
 using System;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -45,9 +45,9 @@ namespace PizzaOven
                 MainWindow mw = new MainWindow();
                 ShutdownMode = ShutdownMode.OnMainWindowClose;
                 mw.Show();
-                // Only check for updates if PizzaOven wasn't launched by 1-click install button
+                // Only check for updates if PizzaMicrowave wasn't launched by 1-click install button
                 if (e.Args.Length == 0)
-                    if (await AutoUpdater.CheckForPizzaOvenUpdate(new CancellationTokenSource()))
+                    if (await AutoUpdater.CheckForPizzaMicrowaveUpdate(new CancellationTokenSource()))
                         mw.Close();
             }
 
@@ -63,7 +63,7 @@ namespace PizzaOven
             }
             else if (running)
             {
-                MessageBox.Show("Pizza Oven is already running", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Pizza Microwave is already running", "Warning", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 Application.Current.Shutdown();
             }
         }

@@ -8,7 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Windows.Input;
 
-namespace PizzaOven.UI
+namespace PizzaMicrowave.UI
 {
     /// <summary>
     /// Interaction logic for EditWindow.xaml

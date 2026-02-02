@@ -6,7 +6,7 @@ using System.IO;
 using System.Text.Json;
 using System.Net.Http;
 using System.Threading;
-using PizzaOven.UI;
+using PizzaMicrowave.UI;
 using System.Reflection;
 using System.Windows;
 using SharpCompress.Common;
@@ -15,7 +15,7 @@ using SharpCompress.Archives.SevenZip;
 using SharpCompress.Archives;
 using SevenZipExtractor;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public static class ModUpdater
     {
@@ -246,7 +246,7 @@ namespace PizzaOven
                     }
                     if (item.AlternateFileSources != null)
                     {
-                        var choice = MessageBox.Show($"Alternate file sources were found for {Path.GetFileName(mod)}! Would you like to manually update?", "PizzaOven", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                        var choice = MessageBox.Show($"Alternate file sources were found for {Path.GetFileName(mod)}! Would you like to manually update?", "PizzaMicrowave", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (choice == MessageBoxResult.Yes)
                         {
                             new AltLinkWindow(item.AlternateFileSources, Path.GetFileName(mod), "Pizza Tower", metadata.homepage.AbsoluteUri, true).ShowDialog();

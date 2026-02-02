@@ -1,4 +1,4 @@
-﻿namespace PizzaOven
+﻿namespace PizzaMicrowave
 {
     public class DownloadProgress
     {

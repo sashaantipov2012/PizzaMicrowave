@@ -1,4 +1,4 @@
-﻿<Window x:Class="PizzaOven.MainWindow"
+﻿<Window x:Class="PizzaMicrowave.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:dd="urn:gong-wpf-dragdrop"
         xmlns:fa5="http://schemas.fontawesome.com/icons/"
         Background="#131313"
-        Title="Pizza Oven" SizeChanged="OnResize"
+        Title="Pizza Microwave" SizeChanged="OnResize"
         mc:Ignorable="d" Closing="Window_Closing" WindowStartupLocation="CenterScreen"
         Height="750" Width="1280" MinHeight="750" MinWidth="1280" Loaded="WindowLoaded" KeyDown="Window_KeyDown">
     <Window.Resources>

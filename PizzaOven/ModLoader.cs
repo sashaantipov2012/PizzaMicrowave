@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public static class ModLoader
     {
@@ -28,7 +28,7 @@ namespace PizzaOven
                     catch (Exception e)
                     {
                         if (e is System.UnauthorizedAccessException)
-                            Global.logger.WriteLine($"Access denied when trying to delete {file}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                            Global.logger.WriteLine($"Access denied when trying to delete {file}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                         else
                             throw;
                         return false;
@@ -46,7 +46,7 @@ namespace PizzaOven
                         catch (Exception e)
                         {
                             if (e is System.UnauthorizedAccessException)
-                                Global.logger.WriteLine($"Access denied when trying to delete {file}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                                Global.logger.WriteLine($"Access denied when trying to delete {file}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                             else
                                 throw;
                             return false;
@@ -60,20 +60,20 @@ namespace PizzaOven
                     catch (Exception e)
                     {
                         if (e is System.UnauthorizedAccessException)
-                            Global.logger.WriteLine($"Access denied when trying to delete {directory}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                            Global.logger.WriteLine($"Access denied when trying to delete {directory}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                         else
                             throw;
                         return false;
                     }
-            // Delete .win from older version of Pizza Oven
-            if (File.Exists($"{Global.config.ModsFolder}{Global.s}PizzaOven.win"))
+            // Delete .win from older version of Pizza Microwave
+            if (File.Exists($"{Global.config.ModsFolder}{Global.s}PizzaMicrowave.win"))
                 try {
-                    File.Delete($"{Global.config.ModsFolder}{Global.s}PizzaOven.win");
+                    File.Delete($"{Global.config.ModsFolder}{Global.s}PizzaMicrowave.win");
                 }
                 catch (Exception e)
                 {
                     if (e is System.UnauthorizedAccessException)
-                        Global.logger.WriteLine($"Access denied when trying to delete {Global.config.ModsFolder}{Global.s}PizzaOven.win. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                        Global.logger.WriteLine($"Access denied when trying to delete {Global.config.ModsFolder}{Global.s}PizzaMicrowave.win. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                     else
                         throw;
                     return false;
@@ -92,7 +92,7 @@ namespace PizzaOven
             if (!File.Exists(xdelta))
             {
 
-                Global.logger.WriteLine($"{xdelta} is not found. Please try redownloading Pizza Oven", LoggerType.Error);
+                Global.logger.WriteLine($"{xdelta} is not found. Please try redownloading Pizza Microwave", LoggerType.Error);
                 return false;
             }
             foreach (var modFile in Directory.GetFiles(mod, "*", SearchOption.AllDirectories))
@@ -146,7 +146,7 @@ namespace PizzaOven
                         {
                             if (gotAccessDeniedError)
                             {
-                                Global.logger.WriteLine($"{Path.GetFileName(modFile)} got an access denied error while patch a file. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                                Global.logger.WriteLine($"{Path.GetFileName(modFile)} got an access denied error while patch a file. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                             }
                             else
                             {
@@ -238,7 +238,7 @@ namespace PizzaOven
                 catch (Exception e)
                 {
                     if (e is System.UnauthorizedAccessException)
-                        Global.logger.WriteLine($"Access denied when trying to apply {Path.GetFileName(modFile)}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                        Global.logger.WriteLine($"Access denied when trying to apply {Path.GetFileName(modFile)}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                     else
                         throw;
                 }
@@ -276,7 +276,7 @@ namespace PizzaOven
                     catch (Exception e)
                     {
                         if (e is System.UnauthorizedAccessException)
-                            Global.logger.WriteLine($"Access denied when trying to restore {Path.GetFileName(file)}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Oven in administrator mode", LoggerType.Error);
+                            Global.logger.WriteLine($"Access denied when trying to restore {Path.GetFileName(file)}. Try reinstalling Pizza Tower to a folder you have access to or running Pizza Microwave in administrator mode", LoggerType.Error);
                         else
                             throw;
                     }
@@ -327,7 +327,7 @@ namespace PizzaOven
             {
                 // Read all in .txt file
                 string[] checksumLines = null;
-                using (Stream stream = Assembly.GetEntryAssembly().GetManifestResourceStream("PizzaOven.Dependencies.XDelta_Common_Checksum.txt"))
+                using (Stream stream = Assembly.GetEntryAssembly().GetManifestResourceStream("PizzaMicrowave.Dependencies.XDelta_Common_Checksum.txt"))
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     checksumLines = EnumerateLines(reader).ToArray();

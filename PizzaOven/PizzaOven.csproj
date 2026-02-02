@@ -3,23 +3,24 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
-    <RootNamespace>PizzaOven</RootNamespace>
+    <RootNamespace>PizzaMicrowave</RootNamespace>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Assets\PizzaOvenIcon.ico</ApplicationIcon>
-    <AssemblyName>PizzaOven</AssemblyName>
+    <ApplicationIcon>Assets\PizzaMicrowaveIcon.ico</ApplicationIcon>
+    <AssemblyName>PizzaMicrowave</AssemblyName>
     <AssemblyVersion>1.0.14.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\PizzaOvenLogo.png" />
-    <None Remove="Assets\PizzaOvenPreview.png" />
+    <None Remove="Assets\PizzaMicrowaveLogo.png" />
+    <None Remove="Assets\PizzaMicrowaveLogoBig.png" />
+	<None Remove="Assets\PizzaMicrowavePreview.png" />
     <None Remove="Assets\RobotoMono-Regular.ttf" />
     <None Remove="Dependencies\XDelta_Common_Checksum.txt" />
     <None Remove="GameBanana.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Assets\PizzaOvenIcon.ico" />
+    <Content Include="Assets\PizzaMicrowaveIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,8 +35,9 @@
 
   <ItemGroup>
     <Resource Include="Assets\GameBanana.png" />
-    <Resource Include="Assets\PizzaOvenLogo.png" />
-    <Resource Include="Assets\PizzaOvenPreview.png" />
+    <Resource Include="Assets\PizzaMicrowaveLogo.png" />
+    <Resource Include="Assets\PizzaMicrowaveLogoBig.png" />
+	<Resource Include="Assets\PizzaMicrowavePreview.png" />
     <Resource Include="Assets\RobotoMono-Regular.ttf" />
     <EmbeddedResource Include="Dependencies\XDelta_Common_Checksum.txt">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

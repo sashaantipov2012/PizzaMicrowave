@@ -12,18 +12,18 @@ using Onova.Services;
 using System.Diagnostics;
 using System.Reflection;
 using System.IO;
-using PizzaOven.UI;
+using PizzaMicrowave.UI;
 using System.Windows.Media.Imaging;
 using Onova.Models;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public class AutoUpdater
     {
         private static ProgressBox progressBox;
         private static HttpClient client = new HttpClient();
 
-        public static async Task<bool> CheckForPizzaOvenUpdate(CancellationTokenSource cancellationToken)
+        public static async Task<bool> CheckForPizzaMicrowaveUpdate(CancellationTokenSource cancellationToken)
         {
             // Get Version Number
             var localVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -34,7 +34,7 @@ namespace PizzaOven
                 GameBananaItem response = JsonSerializer.Deserialize<GameBananaItem>(await client.GetStringAsync(requestUrl));
                 if (response == null)
                 {
-                   MessageBox.Show("Error whilst checking for PizzaOven update: No response from GameBanana API");
+                   MessageBox.Show("Error whilst checking for PizzaMicrowave update: No response from GameBanana API");
                     return false;
                 }
                 if (response.HasUpdates != null && (bool)response.HasUpdates)
@@ -49,7 +49,7 @@ namespace PizzaOven
                     }
                     if (UpdateAvailable(onlineVersion, localVersion))
                     {
-                        ChangelogBox notification = new ChangelogBox(updates[0], "Pizza Oven", $"A new version of Pizza Oven is available (v{onlineVersion})!", null);
+                        ChangelogBox notification = new ChangelogBox(updates[0], "Pizza Microwave", $"A new version of Pizza Microwave is available (v{onlineVersion})!", null);
                         notification.ShowDialog();
                         notification.Activate();
                         if (notification.YesNo)
@@ -58,18 +58,18 @@ namespace PizzaOven
                             string downloadUrl = files.ElementAt(0).Value.DownloadUrl;
                             string fileName = files.ElementAt(0).Value.FileName;
                             // Download the update
-                            await DownloadPizzaOven(downloadUrl, fileName, onlineVersion, new Progress<DownloadProgress>(ReportUpdateProgress), cancellationToken);
+                            await DownloadPizzaMicrowave(downloadUrl, fileName, onlineVersion, new Progress<DownloadProgress>(ReportUpdateProgress), cancellationToken);
                             // Notify that the update is about to happen
-                            MessageBox.Show($"Finished downloading {fileName}!\nPizza Oven will now restart.", "Notification", MessageBoxButton.OK);
-                            // Update PizzaOven
+                            MessageBox.Show($"Finished downloading {fileName}!\nPizza Microwave will now restart.", "Notification", MessageBoxButton.OK);
+                            // Update PizzaMicrowave
                             UpdateManager updateManager = new UpdateManager(AssemblyMetadata.FromAssembly(Assembly.GetEntryAssembly(), Process.GetCurrentProcess().MainModule.FileName),
-                                new LocalPackageResolver($"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate"), new ZipExtractor());
+                                new LocalPackageResolver($"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate"), new ZipExtractor());
                             if (!Version.TryParse(onlineVersion, out Version version))
                             {
                                 MessageBox.Show($"Error parsing {onlineVersion}!\nCancelling update.", "Notification", MessageBoxButton.OK);
                                 return false;
                             }
-                            // Updates and restarts PizzaOven
+                            // Updates and restarts PizzaMicrowave
                             await updateManager.PrepareUpdateAsync(version);
                             updateManager.LaunchUpdater(version);
                             return true;
@@ -83,7 +83,7 @@ namespace PizzaOven
             }
             return false;
         }
-        private static async Task DownloadPizzaOven(string uri, string fileName, string version, Progress<DownloadProgress> progress, CancellationTokenSource cancellationToken)
+        private static async Task DownloadPizzaMicrowave(string uri, string fileName, string version, Progress<DownloadProgress> progress, CancellationTokenSource cancellationToken)
         {
             try
             {
@@ -93,31 +93,31 @@ namespace PizzaOven
                     Directory.CreateDirectory(@$"{Global.assemblyLocation}{Global.s}Downloads");
                 }
                 // Create the downloads folder if necessary
-                if (!Directory.Exists(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate"))
+                if (!Directory.Exists(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate"))
                 {
-                    Directory.CreateDirectory(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate");
+                    Directory.CreateDirectory(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate");
                 }
                 progressBox = new ProgressBox(cancellationToken);
                 progressBox.progressBar.Value = 0;
                 progressBox.progressText.Text = $"Downloading {fileName}";
-                progressBox.Title = "Pizza Oven Update Progress";
+                progressBox.Title = "Pizza Microwave Update Progress";
                 progressBox.finished = false;
                 progressBox.Show();
                 progressBox.Activate();
                 // Write and download the file
                 using (var fs = new FileStream(
-                    $@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate/{fileName}", FileMode.Create, FileAccess.Write, FileShare.None))
+                    $@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate/{fileName}", FileMode.Create, FileAccess.Write, FileShare.None))
                 {
                     await client.DownloadAsync(uri, fs, fileName, progress, cancellationToken.Token);
                 }
                 // Rename the file
-                File.Move($@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate{Global.s}{fileName}", $@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate{Global.s}{version}.zip", true);
+                File.Move($@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate{Global.s}{fileName}", $@"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate{Global.s}{version}.zip", true);
                 progressBox.Close();
             }
             catch (OperationCanceledException)
             {
                 // Remove the file is it will be a partially downloaded one and close up
-                File.Delete(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaOvenUpdate{Global.s}{fileName}");
+                File.Delete(@$"{Global.assemblyLocation}{Global.s}Downloads{Global.s}PizzaMicrowaveUpdate{Global.s}{fileName}");
                 if (progressBox != null)
                 {
                     progressBox.finished = true;

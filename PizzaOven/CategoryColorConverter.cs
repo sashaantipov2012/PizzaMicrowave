@@ -2,7 +2,7 @@
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public class CategoryColorConverter : IValueConverter
     {

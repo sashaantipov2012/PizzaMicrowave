@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using PizzaOven.UI;
+using PizzaMicrowave.UI;
 
-namespace PizzaOven
+namespace PizzaMicrowave
 {
     public class Mod
     {
