@@ -1,12 +1,12 @@
-<img src="https://media.discordapp.net/attachments/796396777090711635/1088971726676828300/PizzaOvenPreview.png?width=1074&height=604" width="500">
-Pizza Oven is a tool that allows gamers to download, install, and manage mods for Pizza Tower. The aim for it is to make installing mods a much better quality of life experience. Unfortunately, this tool does not solve the issue of combining multiple mods as there is no easy way to combine xdelta patches (the main method of modding Pizza Tower).
+![PizzaMicrowaveLogo](PizzaOven/Assets/PizzaOvenLogo.png)
+Pizza Microwave is a tool that allows gamers to download, install, and manage mods for Pizza Tower. The aim for it is to make installing mods a much better quality of life experience. Unfortunately, this tool does not solve the issue of combining multiple mods as there is no easy way to combine xdelta patches (the main method of modding Pizza Tower).
 
 ## Getting Started
 ### Prerequisites
 When you first open the exe, you'll get a message saying to install .NET 7 Desktop Runtime if you don't already have it installed. Please do so if that's the case.
 
 ### Setup
-After the exe actually launches, Pizza Oven will automatically try to locate the game directory. If it fails to find it, it will prompt you to manually select your PizzaTower.exe. Setup will then be done just like that! If you for some reason need to setup again, just click the Setup button again.
+After the exe actually launches, Pizza Microwave will automatically try to locate the game directory. If it fails to find it, it will prompt you to manually select your PizzaTower.exe. Setup will then be done just like that! If you for some reason need to setup again, just click the Setup button again.
 
 ## Features
 ### Installing Mods
@@ -21,10 +21,10 @@ There are 3 methods of doing this:
 There's not much to managing mods as you can only select one mod at a time to use. You can drag and drop the mods in whatever order you want for ease of access. You can also use the search bar to easily find the mod you're looking for amongst many. Once you decide which mod to use, press Launch to play. If you want to go back to playing a Vanilla version of the game, simply press Clear Selection then Launch.
 
 ### Auto Updates
-Pizza Oven also supports auto updates for mods downloaded from GameBanana. Click the Check for Updates button for Pizza Oven to check if any are available for the currently selected game. It will also check if there is an update for Pizza Oven itself. These updates are also checked when launched.
+Pizza Microwave also supports auto updates for mods downloaded from GameBanana. Click the Check for Updates button for Pizza Microwave to check if any are available for the currently selected game. It will also check if there is an update for Pizza Microwave itself. These updates are also checked when launched.
 
 ## How It Works
-Pizza Oven will go through all of the files for the selected mod and do different things based on the file extension. 
+Pizza Microwave will go through all of the files for the selected mod and do different things based on the file extension. 
 
 ### .xdelta
 If it finds an xdelta patch, it will first try to patch the data.win file. If it fails, it will then attempt to patch every single .bank file from the sound/Desktop folder until it succeeds.
@@ -52,12 +52,12 @@ If there are no error messages with xdelta patches and the mod still isn't worki
 The data.win file that the modder provided does not match with your game's version.
 
 ### Why can't I use multiple mods at once?
-Unless someone comes up with an alternative way of modding the game besides using xdelta patches, Pizza Oven will continue to only allow users to use one mod at a time. If a method becomes available, please let me know ASAP and I will work on incorporating it.
+Unless someone comes up with an alternative way of modding the game besides using xdelta patches, Pizza Microwave will continue to only allow users to use one mod at a time. If a method becomes available, please let me know ASAP and I will work on incorporating it.
 
 ### Is this safe? My antivirus is getting set off.
 Yes this application is safe. Antivirus tends to trigger false alarms, especially due to it needing to be connected to the internet in order to be compatible with 1-click installations and updating. You can check out the source code for yourself if you're suspicious of anything as well.
 
-### Why won’t Pizza Oven open?
+### Why won’t Pizza Microwave open?
 I made it so only one instance is running at a time so if it’s already running, the app won’t open. Check to see if you can end the process in task manager or even restart your PC if you don’t know how to do that. 
 
 ### Why doesn't Pizza Oven have permissions to copy over files?
