@@ -61,5 +61,5 @@ Yes this application is safe. Antivirus tends to trigger false alarms, especiall
 ### Why won’t Pizza Microwave open?
 I made it so only one instance is running at a time so if it’s already running, the app won’t open. Check to see if you can end the process in task manager or even restart your PC if you don’t know how to do that. 
 
-### Why doesn't Pizza Oven have permissions to copy over files?
+### Why doesn't Pizza Microwave have permissions to copy over files?
 Try running as administrator or checking to see if any antivirus is preventing the application from operating on files.
